@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse-01">
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <a class="navbar-brand" href=""><img width="25px" src="images/icons/svg/clipboard.svg"/></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse-01">
+    <ul class="nav navbar-nav">           
+      <li class="active"><a href="">ToDo</a></li> 
+     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <span class="dropdown-arrow"></span>
+        <ul class="dropdown-menu">
+          <li><a href="">Action</a></li>
+          <li><a href="">Another action</a></li>
+          <li><a href="">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="">Separated link</a></li>
+        </ul>
+      </li>
+      <li><a href=""><span class="visible-sm visible-xs">Settings<span class="fui-gear"></span></span><span class="visible-md visible-lg"><span class="fui-gear"></span></span></a></li>
+    </ul>        
+  </div><!-- /.navbar-collapse -->
+</nav><!-- /navbar -->
+
+<h1 class="demo-section-title mbl pbl">ToDo</h1>
+<div class="row demo-samples">
+  <div class="col-md-6">
+    <div class="todo">
+      <div class="todo-search">
+        <input class="todo-search-field" type="search" value="" placeholder="Search" />
+      </div>
+      <ul>
+        <li ng-repeat="toDo in toDoList" ng-class="{ 'todo-done': toDo.done }" ng-click="toggleToDo(toDo)">
+          <div class="todo-icon {{ toDo.icon }}"></div>
+          <div class="todo-content">
+            <h4 class="todo-name">
+              {{ toDo.name }}
+            </h4>
+            {{ toDo.location }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> <!-- /todo list -->
+
+  <div class="col-md-6 demo-content">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn" type="button"><span class="fui-calendar"></span></button>
+        </span>
+        <input type="text" class="form-control" value="14 March, 2013" id="datepicker-01">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h4>New ToDo</h4>
+  <form role="form" ng-submit="addNewToDo()">
+    <legend>Create a new ToDo for the selected date</legend>
+    <div class="form-group">
+      <label for="newToDoName">Name</label>
+      <input type="text" class="form-control" id="newToDoName" placeholder="Enter title" ng-model="newToDo.name">
+    </div>
+    <div class="form-group">
+      <label for="newToDoLocation">Location</label>
+      <input type="text" class="form-control" id="newToDoLocation" placeholder="Enter location" ng-model="newToDo.location">
+    </div>
+    <div class="form-group">
+      <label for="newToDoIcon">Icon</label>
+      <input type="text" class="form-control" id="newToDoIcon" placeholder="Enter icon" ng-model="newToDo.icon">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </form>
+</div><!-- /.col-md-12 -->
