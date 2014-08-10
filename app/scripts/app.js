@@ -22,6 +22,10 @@ angular.module('selfAppApp', [
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/angularUi', {
+        templateUrl: 'views/angularui.html',
+        controller: 'AngularuiCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
